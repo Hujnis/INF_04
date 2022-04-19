@@ -12,8 +12,9 @@ unitedSequence = Sequence('all_id_seq')
 #  STRUCTURE: forms -> section -> block -> item 
 FormGroupModel = Table('forms_groups', BaseModel.metadata,
         Column('id', BigInteger, Sequence('all_id_seq'), primary_key=True),
-        Column('form_id', ForeignKey('form.id'), primary_key=True),
-        Column('group_id', ForeignKey('groups.id'), primary_key=True)
+        Column('form_id', ForeignKey('forms.id'), primary_key=True),
+        Column('section_id', ForeignKey('sections.id'), primary_key=True),
+        Column('block_id', ForeignKey('blocks.id'), primary_key=True),
 )
 
 
@@ -26,7 +27,7 @@ class FormModel(BaseModel):
     lastchange = Column(DateTime, default=datetime.datetime.now)
     externalId = Column(BigInteger, index=True)
 
-    #groups = relationship('GroupModel', secondary=FormGroupModel, back_populates='forms')
+    sections = relationship('SectionModel',back_populates = 'form')
 
 class SectionModel(BaseModel):
     __tablename__ = 'sections'
@@ -41,7 +42,9 @@ class SectionModel(BaseModel):
     #sectiontype = relationship('SectionTypeModel', back_populates='sections')
     
     form_id = Column(BigInteger, index = True)
-    forms = relationship('FormModel', back_populates='sections')
+    
+    form = relationship('FormModel', back_populates='sections')
+    blocks = relationship('BlockModel', back_populates = 'section')
 
 class BlockModel(BaseModel):
     __tablename__ = 'blocks'
@@ -52,8 +55,10 @@ class BlockModel(BaseModel):
     lastchange = Column(DateTime, default=datetime.datetime.now)
     externalId = Column(String, index=True)
 
-    form_id = Column(BigInteger, index = True)
-    sections = relationship('SectionModel', back_populates='blocks')
+    section_id = Column(BigInteger, index = True)
+
+    section = relationship('SectionModel', back_populates='blocks')
+    items = relationship('ItemModel', back_populates = 'block')
 
 class ItemModel(BaseModel):
     __tablename__ = 'items'
@@ -64,5 +69,5 @@ class ItemModel(BaseModel):
     lastchange = Column(DateTime, default=datetime.datetime.now)
     externalId = Column(String, index=True)
 
-    form_id = Column(BigInteger, index = True)
-    blocks = relationship('BlockModel', back_populates='items')
+    block_id = Column(BigInteger, index = True)
+    block = relationship('BlockModel', back_populates='items')
