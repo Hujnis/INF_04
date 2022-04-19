@@ -9,7 +9,7 @@ BaseModel = declarative_base()
 unitedSequence = Sequence('all_id_seq')
 
 
-#  STRUCTURE: forms -> section -> block -> item 
+#  STRUCTURE: forms -> sections -> blocks -> items
 FormGroupModel = Table('forms_groups', BaseModel.metadata,
         Column('id', BigInteger, Sequence('all_id_seq'), primary_key=True),
         Column('form_id', ForeignKey('forms.id'), primary_key=True),
@@ -42,7 +42,7 @@ class SectionModel(BaseModel):
     #sectiontype = relationship('SectionTypeModel', back_populates='sections')
     
     form_id = Column(BigInteger, index = True)
-    
+
     form = relationship('FormModel', back_populates='sections')
     blocks = relationship('BlockModel', back_populates = 'section')
 
