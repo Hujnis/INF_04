@@ -37,9 +37,6 @@ class SectionModel(BaseModel):
 
     lastchange = Column(DateTime, default=datetime.datetime.now)
     externalId = Column(String, index=True)
-
-    #sectiontype_id = Column(ForeignKey('sectiontypes.id'))
-    #sectiontype = relationship('SectionTypeModel', back_populates='sections')
     
     form_id = Column(BigInteger, index = True)
 
