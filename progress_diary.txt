@@ -1,5 +1,9 @@
 Vytvoření původní verze Alfa:
 Definovala strukturu databáze (tj. vztahy mezi jednotlivými moduly).
 
+3.5.2022
 Update verze Alfa:
-Přidání connectionstringu - 
+Přidání connectionstringu - komunikace se serverem.
+TODO: 
+Je třeba vyvést docker lokálně na určitý port, na který se server napojuje.
+Dále pokračujeme k vytvoření vyzuální tabulky databáze.
