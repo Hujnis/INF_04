@@ -1,0 +1,5 @@
+Vytvoření původní verze Alfa:
+Definovala strukturu databáze (tj. vztahy mezi jednotlivými moduly).
+
+Update verze Alfa:
+Přidání connectionstringu - 
