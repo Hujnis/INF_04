@@ -1,8 +1,8 @@
 #                           DEFINOVANÁ STRUKTURA DATABÁZE
+#                   -> basemodel
+#                   -> relationship
 #                   -> connectionstring
 #                   -> engine
-#                   -> basemodel
-#                   ->relationship
 
 from sqlalchemy_utils.functions import database_exists, create_database
 from sqlalchemy import create_engine
@@ -10,22 +10,6 @@ from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy import Column, String, BigInteger, Integer, DateTime, ForeignKey, Sequence, Table, column
 from sqlalchemy.orm import relationship
 import datetime
-
-connectionstring = 'postgresql+psycopg2://postgres:example@postgres/newdatabase'
-if not database_exists(connectionstring):  #=> False
-    try:
-        create_database(connectionstring)
-        doCreateAll = True
-        print('Database created')
-    except Exception as e:
-        print('Database does not exists and cannot be created')
-        raise
-else:
-    print('Database already exists')
-
-
-engine = create_engine(connectionstring) 
-
 
 BaseModel = declarative_base()
 
@@ -91,3 +75,19 @@ class ItemModel(BaseModel):
 
     block_id = Column(BigInteger, index = True)
     block = relationship('BlockModel', back_populates='items')
+
+#connectionstring
+connectionstring = 'postgresql+psycopg2://postgres:example@postgres/newdatabase'
+if not database_exists(connectionstring):  #=> False
+    try:
+        create_database(connectionstring)
+        doCreateAll = True
+        print('Database created')
+    except Exception as e:
+        print('Database does not exists and cannot be created')
+        raise
+else:
+    print('Database already exists')
+
+#engine
+engine = create_engine(connectionstring) 
