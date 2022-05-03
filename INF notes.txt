@@ -2,12 +2,19 @@ HOTOVO:
 - definovaná struktura databáze (Alfa)
 
 DALŠÍ KROK:
+
+
+
 1.) (Beta)
 - dodělání tabulky v POSTGRESU
 	-> kód lekce SQL Alchemy 05A
 	-> connectionstring, engine - basemodel ... basemodel.metadata.create_all(engine)
 
 =>vytvoření tabulek v postgresu - prohlížení v PG Admin
+
+
+
+
 
 2.)
 - 05D, 1.4.5
@@ -26,3 +33,4 @@ resolve_form
 IMPORTANT INFO:
 	- verze Bravo je nevyhovující - nevyužití SQL atd..
 	- úkol: úprava Alfa kódu na localhost otevřením postgresu mimo jupyter / vyvedení dockeru lokálně na port xxxx
+	==> tabulky
