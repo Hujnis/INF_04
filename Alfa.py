@@ -10,6 +10,7 @@ from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy import Column, String, BigInteger, Integer, DateTime, ForeignKey, Sequence, Table, column
 from sqlalchemy.orm import relationship
 import datetime
+from Bravo import *
 
 BaseModel = declarative_base()
 

@@ -6,15 +6,18 @@ cursor = None
 
 
 def Connect():
-    global connection, cursor
-    connection = psycopg2.connect("dbname=suppliers user=postgres password=hujni")
-    cursor = connection.cursor()
+    try:
+        global connection, cursor
+        connection = psycopg2.connect("dbname=suppliers user=postgres password=hujni")
+        cursor = connection.cursor()
 
-    print('PostgreSQL database version:')
-    cursor.execute('SELECT version()')
-    db_version = cursor.fetchone()
-    print(db_version)
+        print('PostgreSQL database version:')
+        cursor.execute('SELECT version()')
+        db_version = cursor.fetchone()
+        print(db_version)
 
-    cursor.close()
+    except:
+        print("databaze je v pici")
+        exit(-1)
 
 Connect()
