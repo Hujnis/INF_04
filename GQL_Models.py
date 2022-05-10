@@ -99,7 +99,7 @@ def extractSession(info):
     assert not session is None, 'session is not awailable'
     return session
 
-
+##########################################
 #App
 graphql_app = GraphQLApp(
     schema=graphene.Schema(query=QueryGQL), 
