@@ -29,7 +29,7 @@ FormGroupModel = Table('forms_groups', BaseModel.metadata,
 class FormModel(BaseModel):
     __tablename__ = 'forms'
 
-    id = id = Column(BigInteger, Sequence('all_id_seq'), primary_key=True)
+    id = Column(BigInteger, Sequence('all_id_seq'), primary_key=True)
     name = Column(String)
 
     lastchange = Column(DateTime, default=datetime.datetime.now)
@@ -77,6 +77,8 @@ class ItemModel(BaseModel):
     block_id = Column(BigInteger, index = True)
     block = relationship('BlockModel', back_populates='items')
 
+
+
 #connectionstring
 connectionstring = 'postgresql+psycopg2://postgres:example@postgres/newdatabase'
 if not database_exists(connectionstring):  #=> False
@@ -91,4 +93,6 @@ else:
     print('Database already exists')
 
 #engine
-engine = create_engine(connectionstring) 
+engine = create_engine(connectionstring)
+
+BaseModel.metadata.create_all(engine)
