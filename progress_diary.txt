@@ -1,9 +1,11 @@
+19.4.
 Vytvoření původní verze Alfa:
 Definovala strukturu databáze (tj. vztahy mezi jednotlivými moduly).
 
 3.5.2022
 Update verze Alfa:
 Přidání connectionstringu - komunikace se serverem.
-TODO: 
-Je třeba vyvést docker lokálně na určitý port, na který se server napojuje.
-Dále pokračujeme k vytvoření vyzuální tabulky databáze.
+
+10.5.2022
+Vytvoření GQL_Models:
+Definuje strukturu databáze v GQL prostředí.
