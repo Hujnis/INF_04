@@ -1,6 +1,6 @@
 import graphene
 from requests import session
-from sqlalchemy import extract
+from sqlalchemy import extract#, SessionMaker, start_api
 
 from Alfa import BlockModel, FormModel, ItemModel, SectionModel
 
@@ -12,7 +12,7 @@ class FormGQL(graphene.ObjectType):
     name = graphene.String()
     
     sections = graphene.List(lambda: SectionGQL)
-    def resolve_section(children,info):
+    def resolve_sections(children,info):
         return children.sections
 
 
@@ -25,7 +25,7 @@ class SectionGQL(graphene.ObjectType):
         return parent.form
 
     blocks = graphene.List(lambda: BlockGQL)
-    def resolve_block(children, info):
+    def resolve_blocks(children, info):
         return children.blocks
 
 
@@ -38,7 +38,7 @@ class BlockGQL(graphene.ObjectType):
         return parent.section
 
     items = graphene.List(lambda: ItemGQL)
-    def resolve_item(children, info):
+    def resolve_items(children, info):
         return children.items
 
 
