@@ -10,7 +10,7 @@ from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy import Column, String, BigInteger, Integer, DateTime, ForeignKey, Sequence, Table, column
 from sqlalchemy.orm import relationship
 import datetime
-from Bravo import *
+#from Bravo import *
 
 BaseModel = declarative_base()
 
@@ -80,7 +80,7 @@ class ItemModel(BaseModel):
 
 
 #connectionstring
-connectionstring = 'postgresql+psycopg2://postgres:example@postgres/newdatabase'
+connectionstring = 'postgresql+psycopg2://thujn:hujni@localhost/zadosti'
 if not database_exists(connectionstring):  #=> False
     try:
         create_database(connectionstring)
