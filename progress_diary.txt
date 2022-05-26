@@ -9,3 +9,6 @@ Přidání connectionstringu - komunikace se serverem.
 10.5.2022
 Vytvoření GQL_Models:
 Definuje strukturu databáze v GQL prostředí.
+
+16.5.2022
+Konzultace na téma Postgres, PGAdmin
