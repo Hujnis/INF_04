@@ -1,5 +1,6 @@
 import graphene
-from requests import session
+#from requests import session
+import requests
 from sqlalchemy import extract#, SessionMaker, start_api
 
 from Alfa import BlockModel, FormModel, ItemModel, SectionModel
@@ -79,7 +80,7 @@ class QueryGQL():
 
 
 
-#connection establishment
+#connection establishment, session management
 dbSessionData = {}
 
 def defineStartupAndShutdown(app, SessionMaker):
@@ -99,8 +100,15 @@ def extractSession(info):
     assert not session is None, 'session is not awailable'
     return session
 
+
+#MUTATIONS ? - změny dat
+
+
+
+
 ##########################################
-#App
+#APP
+
 # graphql_app = GraphQLApp(
 #     schema=graphene.Schema(query=QueryGQL), 
 #     on_get=make_graphiql_handler())
@@ -110,5 +118,30 @@ def extractSession(info):
 # defineStartupAndShutdown(app, SessionMaker)
 
 # app.add_route('/gql/', graphql_app)
-# start_api(app=app, port=9992, runNew=True)
+
+# start_api(app=app, port=9992, runNew=True)        #PORT???
+###########################################
+
+###########################################
+#APP po upgradu
+
+# def singleCache(f):
+#     cache = None
+#     def decorated():
+#         nonlocal cache
+#         if cache is None:
+#             fResult = f()
+#             cache = fResult.replace('https://swapi-graphql.netlify.app/.netlify/functions/index', '/gql')
+#         else:
+#             #print('cached')
+#             pass
+#         return cache
+#     return decorated
+
+# @singleCache
+# def getSwapi():
+#     source = "https://raw.githubusercontent.com/graphql/swapi-graphql/master/public/index.html"
+#     import requests
+#     r = requests.get(source)
+#     return r.text
 ###########################################
