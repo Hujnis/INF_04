@@ -12,3 +12,11 @@ Definuje strukturu databáze v GQL prostředí.
 
 16.5.2022
 Konzultace na téma Postgres, PGAdmin
+
+13.6.2022
+doladění PGAdmin
+
+14.6.2022
+projektový den ... změny od minulého projektového dne:
+    - vyvedení postgresu z dockeru na lokální port
+    - zprovoznění PGAdminu
