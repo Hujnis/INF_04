@@ -1,0 +1,6 @@
+#IMPORTS
+graphene
+requests
+sqlalchemy
+starlette_graphene3
+fastapi
