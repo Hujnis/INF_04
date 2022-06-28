@@ -35,3 +35,9 @@ services:
       - postgres
       - js
       - python_fastapi
+
+  hujnocerv:
+    build:
+      context: ./hujnocerv
+    ports:
+      - 9992:80

@@ -2,5 +2,7 @@
 graphene
 requests
 sqlalchemy
-starlette_graphene3
+sqlalchemy.utils
+psycopg2-binary
+starlette-graphene3
 fastapi

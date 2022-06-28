@@ -80,7 +80,8 @@ class ItemModel(BaseModel):
 
 
 #connectionstring
-connectionstring = 'postgresql+psycopg2://thujn:hujni@localhost/zadosti'
+connectionstring = 'postgresql+psycopg2://postgres:example@postgres:5432/data'
+print(connectionstring)
 if not database_exists(connectionstring):  #=> False
     try:
         create_database(connectionstring)

@@ -109,17 +109,18 @@ def extractSession(info):
 ##########################################
 #APP
 
- graphql_app = GraphQLApp(
-     schema=graphene.Schema(query=QueryGQL), 
-     on_get=make_graphiql_handler())
+graphql_app = GraphQLApp(
+	schema=graphene.Schema(query=QueryGQL), 
+	on_get=make_graphiql_handler()
+    )
 
- app = FastAPI()#root_path='/api')
+app = FastAPI()#root_path='/api')
 
- defineStartupAndShutdown(app, SessionMaker)
+defineStartupAndShutdown(app, SessionMaker)
 
- app.add_route('/gql/', graphql_app)
+app.add_route('/gql/', graphql_app)
 
- start_api(app=app, port=9992, runNew=True)        #PORT???
+start_api(app=app, port=9992, runNew=True)        #PORT???
 ###########################################
 
 ###########################################
