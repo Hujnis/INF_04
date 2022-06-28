@@ -1,6 +1,6 @@
 19.4.
 Vytvoření původní verze Alfa:
-Definovala strukturu databáze (tj. vztahy mezi jednotlivými moduly).
+Definovala strukturu databáze SQL (tj. vztahy mezi jednotlivými moduly).
 
 3.5.2022
 Update verze Alfa:
@@ -13,6 +13,9 @@ Definuje strukturu databáze v GQL prostředí.
 16.5.2022
 Konzultace na téma Postgres, PGAdmin
 
+18.5.2022
+Samostudium v oblasti SQL a GQL
+
 13.6.2022
 doladění PGAdmin
 
@@ -20,3 +23,23 @@ doladění PGAdmin
 projektový den ... změny od minulého projektového dne:
     - vyvedení postgresu z dockeru na lokální port
     - zprovoznění PGAdminu
+
+17.6.2022
+Příprava API
+
+17.6. - 20.6.2022
+Ladění API
+
+20.6.2022
+počátek práce na implementaci projektu do OUIS
+
+22.6.2022
+Vytvoření Docker containeru
+Ladění Dockeru, samostudium Dockeru
+
+27.6.2022
+Implementace na OUIS
+
+28.6.2022
+Debug API
+Debug portů
