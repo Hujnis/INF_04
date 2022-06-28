@@ -13,17 +13,14 @@ DALŠÍ KROK:
 =>vytvoření tabulek v postgresu - prohlížení v PG Admin
 
 
-
-
-
 2.)
 - 05D, 1.4.5
 - GQL Modely odpovídající GraphQL.
 
 resolvery:
-form - section
-section - block
-block- item
+form - sections
+section - blocks
+block- items
 
 3.)
 1.4.6
