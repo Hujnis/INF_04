@@ -40,4 +40,6 @@ services:
     build:
       context: ./hujnocerv
     ports:
-      - 9992:80
+      - 42069:42069
+    depends_on:
+      - postgres

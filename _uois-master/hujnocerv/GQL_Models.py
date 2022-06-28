@@ -82,6 +82,7 @@ class QueryGQL(graphene.ObjectType):
 
 #connection establishment, session management
 dbSessionData = {}
+app = FastAPI()
 
 def defineStartupAndShutdown(app, SessionMaker):
     @app.on_event("startup")
@@ -94,6 +95,10 @@ def defineStartupAndShutdown(app, SessionMaker):
         session = dbSessionData.get('session', None)
         if not session is None:
             session.close()
+
+@app.get("/")
+async def root():
+    return {"message": "Ahooj, ja funguju!"}
 
 def extractSession(info):
     session = dbSessionData.get('session', None)
@@ -110,38 +115,11 @@ def extractSession(info):
 #APP
 
 graphql_app = GraphQLApp(
-	schema=graphene.Schema(query=QueryGQL), 
-	on_get=make_graphiql_handler()
-    )
+	schema=graphene.Schema(query=QueryGQL),on_get=make_graphiql_handler())
 
-app = FastAPI()#root_path='/api')
 
 app.add_route('/gql/', graphql_app)
+app.add_websocket_route("/graphql", graphql_app)
 
-if __name__ == "__main__":
-    uvicorn.run(app, host="0.0.0.0", port=9992)
-###########################################
+uvicorn.run(app, host="0.0.0.0", port=42069, root_path=' ')
 
-###########################################
-#APP po upgradu
-
-# def singleCache(f):
-#     cache = None
-#     def decorated():
-#         nonlocal cache
-#         if cache is None:
-#             fResult = f()
-#             cache = fResult.replace('https://swapi-graphql.netlify.app/.netlify/functions/index', '/gql')
-#         else:
-#             #print('cached')
-#             pass
-#         return cache
-#     return decorated
-
-# @singleCache
-# def getSwapi():
-#     source = "https://raw.githubusercontent.com/graphql/swapi-graphql/master/public/index.html"
-#     import requests
-#     r = requests.get(source)
-#     return r.text
-###########################################
