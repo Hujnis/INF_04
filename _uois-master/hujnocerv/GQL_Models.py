@@ -1,5 +1,5 @@
 import graphene
-#from requests import session
+import uvicorn
 import requests
 from sqlalchemy import extract#, SessionMaker, start_api
 
@@ -52,7 +52,7 @@ class ItemGQL(graphene.ObjectType):
         return parent.block
 
 
-class QueryGQL():
+class QueryGQL(graphene.ObjectType):
     form = graphene.Field(FormGQL, id=graphene.ID(required=True))
     section = graphene.Field(SectionGQL, id=graphene.ID(required=True))
     block = graphene.Field(BlockGQL, id=graphene.ID(required=True))
@@ -116,11 +116,10 @@ graphql_app = GraphQLApp(
 
 app = FastAPI()#root_path='/api')
 
-defineStartupAndShutdown(app, SessionMaker)
-
 app.add_route('/gql/', graphql_app)
 
-start_api(app=app, port=9992, runNew=True)        #PORT???
+if __name__ == "__main__":
+    uvicorn.run(app, host="0.0.0.0", port=9992)
 ###########################################
 
 ###########################################

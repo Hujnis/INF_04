@@ -1,5 +1,5 @@
 import graphene
-#from requests import session
+import uvicorn
 import requests
 from sqlalchemy import extract#, SessionMaker, start_api
 
@@ -119,7 +119,8 @@ app = FastAPI()#root_path='/api')
 
 app.add_route('/gql/', graphql_app)
 
-start_api(app=app, port=9992, runNew=True)        #PORT???
+if __name__ == "__main__":
+    uvicorn.run(app, host="0.0.0.0", port=9992) #PORT???
 ###########################################
 
 ###########################################
