@@ -1,7 +1,7 @@
 # For more information, please refer to https://aka.ms/vscode-docker-python
 FROM python:3.8-slim-buster
 
-EXPOSE 9992
+EXPOSE 42069 
 
 # Keeps Python from generating .pyc files in the container
 ENV PYTHONDONTWRITEBYTECODE=1
@@ -22,4 +22,4 @@ RUN useradd appuser && chown -R appuser /app
 USER appuser
 
 # During debugging, this entry point will be overridden. For more information, please refer to https://aka.ms/vscode-docker-python-debug
-CMD [ "python", "./GQL_Models.py" ] 
+CMD [ "python", "./GQL_Models.py", "--host", "0.0.0.0", "--port", "42069" ] 
