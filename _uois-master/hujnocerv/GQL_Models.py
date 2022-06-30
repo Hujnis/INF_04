@@ -133,19 +133,15 @@ def extractSession(info):
     return session
 
 
-#MUTATIONS ? - změny dat
+#MUTATIONS - změny dat
 
-
-
-
-##########################################
 #APP
 
 graphql_app = GraphQLApp(
 	schema=graphene.Schema(query=QueryGQL),on_get=make_graphiql_handler())
 
 
-app.add_route('/gql/', graphql_app, methods=['GET']) #POST zakázán než nevyřešíme proč to kurva hoří
+app.add_route('/gql', graphql_app, methods=['POST']) #POST zakázán než nevyřešíme proč to kurva hoří
 app.add_websocket_route("/graphql", graphql_app)
 
 uvicorn.run(app, host="0.0.0.0", port=42069, root_path=' ')
