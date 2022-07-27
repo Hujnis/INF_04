@@ -129,11 +129,12 @@ def getswapiUI():
 
 def extractSession(info):
     session = dbSessionData.get('session', None)
-    assert not session is None, 'session is not awailable'
+    assert not session is None, 'session is not available'
     return session
 
 
 #MUTATIONS - změny dat
+
 
 #APP
 

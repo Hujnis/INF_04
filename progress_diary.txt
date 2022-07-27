@@ -43,3 +43,6 @@ Implementace na OUIS
 28.6.2022
 Debug API
 Debug portů
+
+7.7.2022
+Implementace hard data pro kontrolu funkčnosti databáze
