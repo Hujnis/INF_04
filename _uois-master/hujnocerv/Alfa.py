@@ -70,7 +70,8 @@ class ItemModel(BaseModel):
 
     id = Column(BigInteger, Sequence('all_id_seq'), primary_key=True)
     name = Column(String)
-
+    #value
+    
     lastchange = Column(DateTime, default=datetime.datetime.now)
     externalId = Column(String, index=True)
 
